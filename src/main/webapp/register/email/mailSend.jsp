@@ -20,7 +20,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('인증 처리 중 에러가 발생했습니다. 관리자에게 문의하십시오.');");
-		script.println("location.href ='../../element/home/index.html'");
+		script.println("location.href ='../../element/home/index.jsp'");
 		script.println("window.parent.location.reload();");
 		script.println("</script>");
 		script.close();
@@ -33,7 +33,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('이미 인증이 완료된 회원입니다.');");
-		script.println("location.href ='../../element/home/index.html'"); 
+		script.println("location.href ='../../element/home/index.jsp'"); 
 		script.println("window.parent.location.reload();");
 		script.println("</script>");
 		script.close();

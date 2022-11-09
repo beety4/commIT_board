@@ -1,0 +1,11 @@
+/* Head Page Custom CSS */
+body {
+    margin : 0;
+    background-color : #313131;
+}
+
+.test {
+    border : 1px;
+    width : 100px;
+    height : 100px;
+}

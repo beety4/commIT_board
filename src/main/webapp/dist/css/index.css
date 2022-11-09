@@ -1,0 +1,82 @@
+/* Home Page Custom CSS */
+body {
+    margin : 0;
+    background-color : #171717;
+}
+
+nav {
+    width : 60%;
+    height : 80px;
+    background-color : #313131;
+    margin : 0px 20% 0px 20%;
+    padding : 0;
+    display : inline-block;
+}
+
+#logo {
+    float : left;
+    width : 170px;
+    margin : 18px 0px 0px 20px;
+}
+
+.menubar {
+    display: flex;
+    justify-content: center;
+    float : center;
+    width : 700px;
+    margin : 25px 88px 0px 0px;
+}
+
+
+
+.info {
+    float : right;
+    font-size : 40px;
+    margin : 20px 20px 0px 0px;
+}
+
+.headimg {
+    width : 60%;
+    margin-left : 20%;
+    border : none;
+    min-height:500px;
+}
+
+footer {
+    width : 60%;
+    height : 80px;
+    background-color : #313131;
+    margin : 30px 20% 0px 20%;
+    padding : 0;
+    display : inline-block;
+    position : relative;
+    transform : translateY(-100%);
+    text-align : center;
+}
+
+.loginusergroup {
+	text-align : center;
+	position : relative;
+	left : -15%;
+}
+
+.loginuser {
+	font-size : 18px;
+	position : relative;
+	top : -20px;
+}
+
+.loginbut {
+	font-size : 10px;
+	position : relative;
+	top : -50px;
+}
+
+.loginIMG {
+	position : relative;
+	top : -50px;
+}
+
+
+
+

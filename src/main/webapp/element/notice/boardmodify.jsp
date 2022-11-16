@@ -52,7 +52,7 @@
 		if(!userID.equals(noticeDAO.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('수정 권환이 없습니다.');");
+			script.println("alert('수정 권한이 없습니다.');");
 			script.println("location.href='index.jsp';");
 			script.println("</script>");
 			script.close();
@@ -82,7 +82,7 @@
 				<tr>
 					<td>
 						<select name="Category">
-							<option value="공지사항" selected="selected">공지사항</option>
+							<option value="공지사항">공지사항</option>
 							<option value="업데이트내역">업데이트내역</option>
 							<option value="잡답">잡담</option>
 							<option value="개발자코멘트">개발자코멘트</option>

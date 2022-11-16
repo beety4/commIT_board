@@ -49,6 +49,10 @@
 				<td colspan="2"><%=noticeDAO.getUserID() %>
 			</tr>
 			<tr>
+				<td style="width:300px;">카테고리</td>
+				<td colspan="2"><%=noticeDAO.getCategory() %>
+			</tr>
+			<tr>
 				<td style="width:300px;">작성일자</td>
 				<td colspan="2"><%=noticeDAO.getDate() %>
 			</tr>
@@ -58,7 +62,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<a href="index.jsp">목록</a>
+	<a href="javascript:window.history.back();">목록</a>
 	
 	<%
 		if(userID != null && userID.equals(noticeDAO.getUserID())) {

@@ -32,7 +32,7 @@
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 	
-	String Category = null;
+	String Category = "null";
 	if (request.getParameter("Category") != null) {
 		Category = (String)request.getParameter("Category");
 	}
@@ -42,51 +42,48 @@
 <div class="container">
 	<div class="row">
 		<div>
-			<form method="post" action="index.jsp?category=<%=Category %>">
-			<select name="Category">
-				<option value="공지사항">공지사항</option>
-				<option value="업데이트내역">업데이트내역</option>
-				<option value="잡답">잡담</option>
-				<option value="개발자코멘트">개발자코멘트</option>
-			</select>
-			<input type="submit" value="검색">
-			</form>
+		
+		<sl-button onclick="location.href='index.jsp?pageNumber=1&&Category=null'">모두</sl-button>
+		<sl-button onclick="location.href='index.jsp?pageNumber=1&&Category=공지사항'">공지사항</sl-button>
+		<sl-button onclick="location.href='index.jsp?pageNumber=1&&Category=업데이트내역'">업데이트내역</sl-button>
+		<sl-button onclick="location.href='index.jsp?pageNumber=1&&Category=잡담'">잡담</sl-button>
+		<sl-button onclick="location.href='index.jsp?pageNumber=1&&Category=개발자코멘트'">개발자코멘트</sl-button>
+		<a href="boardwrite.jsp" class="btn btn-success" style="float: right;">글쓰기</a>
+		<br>
 		</div>
+		
+		
+		
 		<table class="table" style="text-align: center; border: 1px solid #dddddd;">
 			<thead>
 				<tr>
-					<th style="background-color: #eeeeee; text-align: center;">번호</th>
-					<th style="background-color: #eeeeee; text-align: center;">카테고리</th>
-					<th style="background-color: #eeeeee; text-align: center;">제목</th>
-					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-					<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+					<th style="background-color: #eeeeee; text-align: center; width: 15%;">번호</th>
+					<th style="background-color: #eeeeee; text-align: center; width: 40%;">제목</th>
+					<th style="background-color: #eeeeee; text-align: center; width: 15%;">작성자</th>
+					<th style="background-color: #eeeeee; text-align: center; width: 15%;">카테고리</th>
+					<th style="background-color: #eeeeee; text-align: center; width: 15%;">작성일</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%
 					noticeDAO noticeDAO = new noticeDAO();
-					ArrayList<noticeDTO> list = noticeDAO.boardList(pageNumber);
+					ArrayList<noticeDTO> list;
 					
-					if( Category == "공지사항") {
+					if(Category.equals("null")) {
+						list = noticeDAO.boardList(pageNumber);
+					}
+					else {
 						list = noticeDAO.categoryList(pageNumber, Category);
 					}
-					else if(Category == "업데이트내역") {
-						list = noticeDAO.categoryList(pageNumber, Category);
-					}
-					else if(Category == "잡담") {
-						list = noticeDAO.categoryList(pageNumber, Category);
-					}
-					else if(Category == "개발자코멘트") {
-						list = noticeDAO.categoryList(pageNumber, Category);
-					}
+
 					
 					for(int i = 0; i < list.size(); i++) {
 				%>
 				<tr onclick="location.href='boardview.jsp?num=<%=list.get(i).getNum() %>'">
 					<td><%= list.get(i).getNum() %></td>
-					<td><%= list.get(i).getCategory() %></td>
 					<td><%= list.get(i).getTitle() %></td>
 					<td><%= list.get(i).getUserID() %></td>
+					<td><%= list.get(i).getCategory() %></td>
 					<td><%= list.get(i).getDate().substring(0,11) %></td>
 				</tr>
 				<%
@@ -94,21 +91,35 @@
 				%>
 			</tbody>
 		</table>
-		<%
-			if(pageNumber != 1) {
+
+		<%	
+			if(!Category.equals("null")) {
+				if(noticeDAO.nextPageCategory(pageNumber + 1, Category)) {
 		%>
-			<a href="index.jsp?pageNumber=<%= pageNumber - 1 %>" class="btn btn-success">이전</a>
+					<a href="index.jsp?pageNumber=<%= pageNumber + 1 %>&&Category=<%=Category %>" class="btn btn-secondary">다음</a>
 		<%
-			} if(noticeDAO.nextPage(pageNumber + 1)) {
+				} if(pageNumber != 1) {
 		%>
-			<a href="index.jsp?pageNumber=<%= pageNumber + 1 %>" class="btn btn-success">다음</a>
+					<a href="index.jsp?pageNumber=<%= pageNumber - 1 %>&&Category=<%=Category %>" class="btn btn-secondary">이전</a><br>
 		<%
+				}
+			} 
+			else {
+				if(noticeDAO.nextPage(pageNumber +1)) {
+		%>
+					<a href="index.jsp?pageNumber=<%= pageNumber + 1 %>&&Category=<%=Category %>" class="btn btn-secondary">다음</a>
+		<%
+				} if(pageNumber != 1) {
+		%>
+					<a href="index.jsp?pageNumber=<%= pageNumber - 1 %>&&Category=<%=Category %>" class="btn btn-secondary">이전</a><br>
+		<% 
+				}
 			}
 		%>
+			
 	</div>
-	<sl-button onclick="location.href='boardwrite.jsp'">글쓰기</sl-button>
 </div>
-
+<br><br><br>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="../../dist/bootstrap/bootstrap.min.js"></script>

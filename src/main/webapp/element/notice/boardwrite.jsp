@@ -25,7 +25,6 @@ if((String) session.getAttribute("sID") == null) {
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
 	script.println("alert('로그인이 필요한 서비스입니다.');");
-	script.println("window.parent.location.reload();");
 	script.println("location.href='../../login/index.jsp';");
 	script.println("</script>");
 	script.close();
@@ -57,7 +56,7 @@ if((String) session.getAttribute("sID") == null) {
 						<select name="Category">
 							<option value="공지사항" selected="selected">공지사항</option>
 							<option value="업데이트내역">업데이트내역</option>
-							<option value="잡답">잡담</option>
+							<option value="잡담">잡담</option>
 							<option value="개발자코멘트">개발자코멘트</option>
 						</select>
 					</td>

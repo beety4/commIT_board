@@ -18,7 +18,6 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('로그인이 필요한 서비스입니다.');");
-		script.println("window.parent.location.reload();");
 		script.println("location.href='../../login/index.jsp';");
 		script.println("</script>");
 		script.close();

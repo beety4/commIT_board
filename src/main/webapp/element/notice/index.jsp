@@ -58,9 +58,8 @@
 			<thead>
 				<tr>
 					<th style="background-color: #eeeeee; text-align: center; width: 15%;">번호</th>
-					<th style="background-color: #eeeeee; text-align: center; width: 40%;">제목</th>
+					<th style="background-color: #eeeeee; text-align: center; width: 55%;">제목</th>
 					<th style="background-color: #eeeeee; text-align: center; width: 15%;">작성자</th>
-					<th style="background-color: #eeeeee; text-align: center; width: 15%;">카테고리</th>
 					<th style="background-color: #eeeeee; text-align: center; width: 15%;">작성일</th>
 				</tr>
 			</thead>
@@ -77,13 +76,32 @@
 					}
 
 					
+					//int numbering = 0;
+					//int cnt = noticeDAO.count();
+					//int Categorycnt = noticeDAO.categoryCount(Category);
+					
 					for(int i = 0; i < list.size(); i++) {
+/* 						if(Category.equals("null")){
+							if(pageNumber !=1 ) {
+								numbering = cnt - (pageNumber-1) * 10 - i;
+							}
+							else {
+								numbering = noticeDAO.count() - i;
+							}
+						} 
+						else {
+							if(pageNumber !=1 ) {
+								numbering = Categorycnt - (pageNumber-1) * 10 - i;
+							}
+							else {
+								numbering = noticeDAO.categoryCount(Category) - i;
+							}
+						} */
 				%>
 				<tr onclick="location.href='boardview.jsp?num=<%=list.get(i).getNum() %>'">
 					<td><%= list.get(i).getNum() %></td>
-					<td><%= list.get(i).getTitle() %></td>
+					<td><a style="float:left;">[ <%= list.get(i).getCategory() %> ] <%= list.get(i).getTitle() %></a></td>
 					<td><%= list.get(i).getUserID() %></td>
-					<td><%= list.get(i).getCategory() %></td>
 					<td><%= list.get(i).getDate().substring(0,11) %></td>
 				</tr>
 				<%
@@ -119,7 +137,7 @@
 			
 	</div>
 </div>
-<br><br><br>
+<br><br>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="../../dist/bootstrap/bootstrap.min.js"></script>

@@ -3,14 +3,20 @@
 <%@ page import="notice.noticeDTO"%>
 <%@ page import="notice.noticeDAO"%>
 <%@ page import="java.io.PrintWriter"%>
-    
+
+
+ 
     
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String Title = (String) request.getParameter("Title");
-	String Category = (String) request.getParameter("Category");
-	String Content = (String) request.getParameter("Content");
+
+	
+	String Title = request.getParameter("Title");
+	String Category = request.getParameter("Category");
+	String Content = request.getParameter("Content");
+	
+
 
 
 	String userID = null;

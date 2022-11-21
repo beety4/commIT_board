@@ -36,7 +36,7 @@ if((String) session.getAttribute("sID") == null) {
 <div class="container">
 	<div class="row">
 		<form method="post" action="startWrite.jsp" name="writeform">
-		<table class="table" style="text-align: center; border: 1px solid #dddddd;">
+				<table class="table" style="text-align: center; border: 1px solid #dddddd;">
 			<thead>
 				<tr>
 					<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기</th>
@@ -65,9 +65,9 @@ if((String) session.getAttribute("sID") == null) {
 		</table>
 		</div>
 		<sl-button onclick="boardcheck();" style="float:right;">글쓰기</sl-button>
-	</form>
+		</form>
 </div>
-
+<br><br>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="../../dist/bootstrap/bootstrap.min.js"></script>

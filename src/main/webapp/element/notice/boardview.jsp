@@ -42,7 +42,7 @@
 		<tbody>
 			<tr>
 				<td style="width:300px;">글제목</td>
-				<td colspan="2"><%=noticeDAO.getTitle() %>
+				<td colspan="2"><%=noticeDAO.getTitle().replaceAll(" ","&nbsp;").replaceAll("<", "&lt;").replaceAll(">","&gt;") %>
 			</tr>
 			<tr>
 				<td style="width:300px;">작성자</td>
@@ -58,7 +58,7 @@
 			</tr>
 			<tr>
 				<td style="width:300px;">내용</td>
-				<td colspan="2" style="height : 400px;"><%=noticeDAO.getContent() %>
+				<td colspan="2" style="height : 400px;"><%=noticeDAO.getContent().replaceAll(" ","&nbsp;").replaceAll("<", "&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %>
 			</tr>
 		</tbody>
 	</table>

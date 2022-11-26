@@ -10,6 +10,8 @@
 	request.setCharacterEncoding("UTF-8");
 	String userID = null;
 	String userPassword = null;
+	int result = 0;
+	int emailChecked = 0;
 
 
 	if((String) session.getAttribute("sID") != null) {
@@ -29,8 +31,8 @@
 	
 	userDAO userDAO = new userDAO();
 	mailDAO mailDAO = new mailDAO();
-	int result = userDAO.login(userID, userPassword);
-	int emailChecked = mailDAO.getemailcheck(userID);
+	result = userDAO.login(userID, userPassword);
+	emailChecked = mailDAO.getemailcheck(userID);
 	if (result == 1) {
 		if (emailChecked != 1) {
 			PrintWriter script = response.getWriter();

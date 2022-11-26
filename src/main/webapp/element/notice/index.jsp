@@ -66,7 +66,7 @@
 			<tbody>
 				<%
 					noticeDAO noticeDAO = new noticeDAO();
-					ArrayList<noticeDTO> list;
+					ArrayList<noticeDTO> list = null;
 					
 					if(Category.equals("null")) {
 						list = noticeDAO.boardList(pageNumber);

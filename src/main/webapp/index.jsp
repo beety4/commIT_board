@@ -12,8 +12,8 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/themes/dark.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/shoelace.js"></script>
-        <link rel="stylesheet" type="text/css" href="dist/css/index.css">
-        <script src="dist/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <script type="text/javascript" src="./index.js"></script>
 </head>
 <body>
 
@@ -38,7 +38,7 @@
 			<sl-button size="small" class="loginbut">내정보</sl-button>
 			<sl-button size="small" class="loginbut">로그아웃</sl-button>
 			-->
-           	<sl-icon name="person-circle" onclick="mainpage.location.href='login/userinfo/index.jsp'" style="cursor: pointer;" class="loginIMG"></sl-icon>
+           	<sl-icon name="person-circle" onclick="mainpage.location.href='login/useredit/index.jsp'" style="cursor: pointer;" class="loginIMG"></sl-icon>
         </div>
 		<%
 		} else { %>
@@ -53,8 +53,7 @@
         <sl-tab-group class="menubar">
             <sl-tab slot="nav" panel="home" onclick="mainpage.location.href='element/home/index.jsp'">홈</sl-tab>
             <sl-tab slot="nav" panel="notice" onclick="mainpage.location.href='element/notice/index.jsp'">공지사항</sl-tab>
-            <sl-tab slot="nav" panel="board" onclick="mainpage.location.href='board/index.jsp'">게시판</sl-tab>
-            <sl-tab slot="nav" panel="wiki" onclick="mainpage.location.href='element/wiki/index.jsp'">커밋위키</sl-tab>
+    	    <sl-tab slot="nav" panel="board" onclick="mainpage.location.href='board/index.jsp'">게시판</sl-tab>
             <sl-tab slot="nav" panel="chat" onclick="mainpage.location.href='element/chat/index.jsp'">채팅</sl-tab>
         </sl-tab-group>
         </nav>

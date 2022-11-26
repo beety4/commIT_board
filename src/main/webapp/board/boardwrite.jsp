@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notice Page</title>
+    <title>major Page</title>
 
     <!-- shoelace -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/themes/dark.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/shoelace.js"></script>
 
-    <link rel="stylesheet" href="../../dist/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../dist/bootstrap/bootstrap.css" />
 
     <link rel="stylesheet" type="text/css" href="index.css">
     <script src="validate.js"></script>
@@ -25,7 +25,7 @@ if((String) session.getAttribute("sID") == null) {
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
 	script.println("alert('로그인이 필요한 서비스입니다.');");
-	script.println("location.href='../../login/index.jsp';");
+	script.println("location.href='../login/index.jsp';");
 	script.println("</script>");
 	script.close();
 }
@@ -35,7 +35,7 @@ if((String) session.getAttribute("sID") == null) {
 <br><br><br><br>
 <div class="container">
 	<div class="row">
-		<form method="post" action="startWrite.jsp" name="writeform" enctype="multipart/form-data">
+		<form method="post" action="startWrite.jsp" name="writeform">
 				<table class="table" style="text-align: center; border: 1px solid #dddddd;">
 			<thead>
 				<tr>
@@ -54,10 +54,12 @@ if((String) session.getAttribute("sID") == null) {
 				<tr>
 					<td>
 						<select name="Category">
-							<option value="공지사항" selected="selected">공지사항</option>
-							<option value="업데이트내역">업데이트내역</option>
-							<option value="잡담">잡담</option>
-							<option value="개발자코멘트">개발자코멘트</option>
+							<option value="개발" selected="selected">개발</option>
+							<option value="네트워크">네트워크</option>
+							<option value="서버">서버</option>
+							<option value="하드웨어">하드웨어</option>
+							<option value="보안">보안</option>
+							<option value="인공지능">인공지능</option>
 						</select>
 					</td>
 				</tr>

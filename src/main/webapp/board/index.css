@@ -1,6 +1,23 @@
-/* Board Page Custom CSS */
+/* Notice Page Custom CSS */
 body {
     margin : 0;
     background-color : #313131;
 }
 
+tr {
+	background-color : #ffffff;
+}
+
+.su {
+	background-color : #ffffff;
+	color : black;
+}
+
+
+td {
+	background-color : #ffffff;
+}
+
+.testaa {
+	background-color : #ffffff;
+}

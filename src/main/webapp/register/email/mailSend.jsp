@@ -52,7 +52,7 @@
 		"<form action='" + host + "mailCheck.jsp' method='post'>"+
 		"<input type='text' style='display:none;' name='emailhash' value='" + new SHA256().getSHA256(to) + "'>" +
 		"<input type='text' style='display:none;' name='userID' value='" + sID + "'>" +
-		"<button type='submit'>인증</button>";
+		">>> <button type='submit'>인증</button> <<<";
 		
 		
 	

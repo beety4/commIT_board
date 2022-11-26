@@ -1,4 +1,4 @@
-function registercheck() {
+function inputcheck() {
     var id = document.getElementById("rid");
     var pwd = document.getElementById("rpassword");
     var pwdcheck = document.getElementById("rpasswordc");
@@ -25,13 +25,13 @@ function registercheck() {
         return false;
     };
 
-    if (name.value == "") {
-        alert("이름을 입력하세요");
-        name.focus();
-        return false;
-    };
+    //if (name.value == "") {
+    //    alert("이름을 입력하세요");
+    //    name.focus();
+    //    return false;
+    //};
 
 
 
-    document.registerform.submit();
+    document.updateuserinfo.submit();
 }

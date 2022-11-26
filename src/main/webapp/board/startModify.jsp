@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="notice.noticeDTO" %>
-<%@ page import="notice.noticeDAO" %>
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-
-
+<%@ page import="major.majorDTO" %>
+<%@ page import="major.majorDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +11,6 @@
 </head>
 <body>
 	<%
-
-	
-	
-	
 		String userID = null;
 		if(session.getAttribute("sID") != null) {
 			userID = (String) session.getAttribute("sID");
@@ -27,7 +19,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인이 필요한 서비스입니다.');");
-			script.println("location.href='../../login/index.jsp';");
+			script.println("location.href='../login/index.jsp';");
 			script.println("</script>");
 			script.close();
 		}
@@ -45,8 +37,8 @@
 			script.close();
 		}
 	
-		noticeDTO noticeDAO = new noticeDAO().showBoard(num);
-		if(!userID.equals(noticeDAO.getUserID())){
+		majorDTO majorDAO = new majorDAO().showBoard(num);
+		if(!userID.equals(majorDAO.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권환이 없습니다.');");
@@ -55,21 +47,13 @@
 			script.close();
 		}
 		else{
+			String Title = request.getParameter("Title");
+			String Category = request.getParameter("Category");
+			String Content = request.getParameter("Content");
+			String Img = request.getParameter("Img");
 			
-			String path = "C:/Users/sysop/eclipse-workspace/TOC/src/main/webapp/img";
-			String test = application.getRealPath("img");
-			String aa = request.getServletContext().getRealPath("img");
-			int size = 5 * 1024 * 1024;
-			MultipartRequest multi = new MultipartRequest(request, test, size, "UTF-8", new DefaultFileRenamePolicy());
-		
-			String Title = multi.getParameter("Title");
-			String Category = multi.getParameter("Category");
-			String Content = multi.getParameter("Content");
-			String fileName = multi.getFilesystemName("Img");
-
-			
-			noticeDAO notice = new noticeDAO();
-			int result = notice.modify(num, Title, Category, Content, fileName);
+			majorDAO major = new majorDAO();
+			int result = major.modify(num, Title, Category, Content, Img);
 			if(result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
@@ -81,9 +65,7 @@
 			else {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.print("alert('");
-				script.print(path);
-				script.println("');");
+				script.println("alert('글 수정에 성공하였습니다!');");
 				script.println("location.href='index.jsp';");
 				script.println("</script>");
 				script.close();

@@ -52,15 +52,11 @@
       <div class="container">
         <div class="row align-items-center justify-content-center backcolorbg">
           <div class="col-md-7">
-            <h3 class="h3align"><strong>Edit user info</strong></h3>
+            <h3 class="h3align"><strong>Edit user Password</strong></h3>
             <p class="mb-4" style="text-align:center;"></p>
             <br>
             <form action="updateuserinfo.jsp" method="post" name="updateuserinfo">
-              <div class="form-group first">
-                <label for="password" class="acmsg">NickName</label>
-                <input type="text" class="form-control" placeholder="Your Name" id="nickname" name="nickname" maxlength=10 style="width:400px;">
-                <button type="button" onclick="dbIDcheck();" name="dbIDcheck" class="dupchk">수정</button>
-              </div>
+
               <div class="form-group last mb-3">
                 <label for="password" class="acmsg">Password</label>
                 <input type="password" class="form-control" placeholder="Your Password" id="rpassword" name="rpassword">
